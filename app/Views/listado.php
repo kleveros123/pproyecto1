@@ -12,23 +12,46 @@
       <div class="row">
         <div class="col-sm-6">
           <form action="<?= base_url().'crear' ?>" method="post">
+          
           <div class="form-group">
-            <label for="nombreLibro">Nombre del Libro</label>
-            <input type="text" name="nombreLibro" id="nombreLibro" class="form-control" placeholder="">
-            
-            <label for="imagenLibro">Imagen del Libro</label>
-            <input type="text" name="imagenLibro" id="imagenLibro" class="form-control" placeholder="">
-            
-            <label for="categoriaLibro">Categoría del Libro</label>
-            <input type="text" name="categoriaLibro" id="categoriaLibro" class="form-control" placeholder="">
-            
-            <label for="autorLibro">Autor del Libro</label>
-            <input type="text" name="autorLibro" id="autorLibro" class="form-control" placeholder="">
-            <button class='btn btn-primary'>Guardar</button>
+            <label for="nombre_libro">Nombre del Libro</label>
+            <input type="text" name="nombre_libro" id="nombre_libro" class="form-control" placeholder="">
           </div>
+          
+          <div class="form-group">
+            <label for="imagen_libro">Imagen del Libro</label>
+            <input type="text" name="imagen_libro" id="imagen_libro" class="form-control" placeholder="">
+          </div>
+              
+          <div class="form-group">
+              <label for="id_categoria">Categoria</label>
+              <select class="form-control" name="id_categoria" id="id_categoria">
+                <option value="">Seleccione</option>
+                <?php foreach($categorias as $categoria): ?>
+                <option value="<?= $categoria->id_categoria ?>"><?= $categoria->descripcion_categoria ?></option>
+                <?php endforeach; ?>
+              </select>
+          </div>
+
+          <div class="form-group">
+
+              <label for="id_autor">Autores</label>
+              <select class="form-control" name="id_autor" id="id_autor">
+                <option value="">Seleccione</option>
+                <?php foreach($autores as $autor): ?>
+                  <option value="<?= $autor->id_autor ?>"><?= $autor->nombre_autor ?></option>
+                  <?php endforeach; ?>
+                </select>
+          </div>
+                
+          <div class="form-group">
+            <button class='btn btn-primary'>Guardar</button>
+          </div>  
+        </div>
         </form>
         </div>
       </div>
+      <hr>
       <div class="row">
         <div class="col-sm-12">
           <table class="table table-striped table-inverse table-responsive">
